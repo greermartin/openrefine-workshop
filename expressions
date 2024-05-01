@@ -9,8 +9,15 @@ https://raw.githubusercontent.com/greermartin/openrefine-workshop/main/repositor
 Filter titles with "art" using regex: 
 \bart\b
 
-GREL to remove one XML tag: 
+GREL to remove one XML tag in title column: 
 value.replace("<i>","")​
 
-GREL to remove all XML tags: 
+GREL to remove all XML tags in title column: 
 value.replace(/<[^>]+>/,"")​
+
+GREL to add domain to DOIs:
+'https://doi.org/'+value
+
+GREL to reformat dates as ISO 8601 standard in publication_date column:
+value.toDate("MM/dd/yy")
+
