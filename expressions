@@ -22,11 +22,11 @@ Task #2: Move DOIS to their own column and create URLs​
 GREL to add domain to DOIs:
 'https://doi.org/'+value
 
-
-Task #3: Normalize keywords and match with FAST vocabulary ​
-
 GREL to reformat dates as ISO 8601 standard in publication_date column:
 value.toDate("MM/dd/yy")
+
+
+Task #3: Normalize keywords and match with FAST vocabulary ​
 
 FAST API query for "Humanities"
 http://fast.oclc.org/searchfast/fastsuggest?&query=Humanities&queryIndex=suggestall&queryReturn=suggestall%2Cidroot%2Cauth%2Ctag%2Ctype&suggest=autoSubject&rows=1​
