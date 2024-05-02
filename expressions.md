@@ -1,0 +1,43 @@
+# For Copying and Pasting 
+
+Start Open Refine: 
+http://127.0.0.1:3333/​
+
+Dataset: 
+https://raw.githubusercontent.com/greermartin/openrefine-workshop/main/repository-data.csv
+
+Filter titles with "art" using regex: 
+\\bart\\b
+
+##Task \#1: Remove XML Tags from Titles
+
+GREL to remove one XML tag in title column: 
+value.replace("<i>","")​
+
+GREL to remove all XML tags in title column: 
+value.replace(/<[^>]+>/,"")​
+
+##Task \#2: Move DOIS to their own column and create URLs​
+
+GREL to add domain to DOIs:
+\'https://doi.org/\'+value
+
+##Task \#3: Normalize keywords and match with FAST vocabulary ​
+
+GREL to reformat dates as ISO 8601 standard in publication_date column:
+value.toDate("MM/dd/yy")
+
+FAST API query for "Humanities"
+http://fast.oclc.org/searchfast/fastsuggest?&query=Humanities&queryIndex=suggestall&queryReturn=suggestall%2Cidroot%2Cauth%2Ctag%2Ctype&suggest=autoSubject&rows=1​
+
+FAST API query in Open Refine for keyword column (Add column by fetching URLs):
+'http://fast.oclc.org/searchfast/fastsuggest?&query='+escape(value,"url")+'&queryIndex=suggestall&queryReturn=suggestall%2Cidroot%2Cauth%2Ctag%2Ctype&suggest=autoSubject&rows=1'
+
+Parse JSON to copy FAST heading into new column
+value.parseJson()["response"]["docs"][0]["auth"]​
+
+Parse JSON to copy FAST ID into new column
+value.parseJson()["response"]["docs"][0]["idroot"]​
+
+##Task \#4: Reconcile institution names WIth LC Names (VIA VIAF)​
+https://refine.codefork.com/reconcile/viafproxy/LC
