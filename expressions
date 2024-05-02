@@ -1,5 +1,3 @@
-# For Copying and Pasting 
-
 Start Open Refine: 
 http://127.0.0.1:3333/​
 
@@ -7,9 +5,10 @@ Dataset:
 https://raw.githubusercontent.com/greermartin/openrefine-workshop/main/repository-data.csv
 
 Filter titles with "art" using regex: 
-\\bart\\b
+\bart\b
 
-##Task \#1: Remove XML Tags from Titles
+
+Task #1: Remove XML Tags from Titles
 
 GREL to remove one XML tag in title column: 
 value.replace("<i>","")​
@@ -17,12 +16,14 @@ value.replace("<i>","")​
 GREL to remove all XML tags in title column: 
 value.replace(/<[^>]+>/,"")​
 
-##Task \#2: Move DOIS to their own column and create URLs​
+
+Task #2: Move DOIS to their own column and create URLs​
 
 GREL to add domain to DOIs:
-\'https://doi.org/\'+value
+'https://doi.org/'+value
 
-##Task \#3: Normalize keywords and match with FAST vocabulary ​
+
+Task #3: Normalize keywords and match with FAST vocabulary ​
 
 GREL to reformat dates as ISO 8601 standard in publication_date column:
 value.toDate("MM/dd/yy")
@@ -39,5 +40,7 @@ value.parseJson()["response"]["docs"][0]["auth"]​
 Parse JSON to copy FAST ID into new column
 value.parseJson()["response"]["docs"][0]["idroot"]​
 
-##Task \#4: Reconcile institution names WIth LC Names (VIA VIAF)​
+
+Task #4: Reconcile institution names WIth LC Names (VIA VIAF)​
+
 https://refine.codefork.com/reconcile/viafproxy/LC
