@@ -14,7 +14,7 @@ GREL to remove one XML tag in title column:
 value.replace("<i>","")​
 
 GREL to remove all XML tags in title column: 
-value.replace(/<[^>]+>/,"")​
+value.replace("/<[^>]+>/","")​
 
 
 Task #2: Move DOIS to their own column and create URLs​
