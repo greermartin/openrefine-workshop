@@ -43,4 +43,8 @@ value.parseJson()["response"]["docs"][0]["idroot"]​
 
 Task #4: Reconcile institution names WIth LC Names (VIA VIAF)​
 
+LC Names by way of VIAF reconciliation service:
 https://refine.codefork.com/reconcile/viafproxy/LC
+
+Expression to pull in identifiers for any reconciled values:
+cell.recon.match.id
