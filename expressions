@@ -26,7 +26,7 @@ GREL to reformat dates as ISO 8601 standard in publication_date column:
 value.toDate("MM/dd/yy")
 
 
-Task #3: Normalize keywords and match with FAST vocabulary ​
+Task #3: Normalize keywords and match against FAST vocabulary ​
 
 FAST API query for "Humanities"
 http://fast.oclc.org/searchfast/fastsuggest?&query=Humanities&queryIndex=suggestall&queryReturn=suggestall%2Cidroot%2Cauth%2Ctag%2Ctype&suggest=autoSubject&rows=1​
@@ -41,7 +41,7 @@ Parse JSON to copy FAST ID into new column
 value.parseJson()["response"]["docs"][0]["idroot"]​
 
 
-Task #4: Reconcile institution names WIth LC Names (VIA VIAF)​
+Task #4: Reconcile institution names against LC Names (VIA VIAF)​
 
 LC Names by way of VIAF reconciliation service:
 https://refine.codefork.com/reconcile/viafproxy/LC
